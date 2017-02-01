@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    Fortune cookie demo app
+    <form>
+        <label for="phone">Phone</label>
+        <input type="tel" name="phone" id="phone" required="required" maxlength="10" pattern="[0-9]{10}" />
+        <input type="submit" value="Submit" />
+    </form>
+    <script>
+        $(document).ready(function () {
+            $("form").submit(function (event) {
+                var phone = $("#phone").val();
+                alert("You'll soon get your fortune on " + phone);
+
+                $.get("[httptriggerurl]" + phone );
+
+                event.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
